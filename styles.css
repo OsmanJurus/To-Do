@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 14px;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: #e5e5e5;
+}
+
+h4{
+    font-family:impact;
+    letter-spacing: 5px;
+    font-weight: bold;
+    color: #246363;
+    text-shadow: 2px 3px rgba(0, 0, 0, 0.401);
+}
+.app {
+  background-color: #fff;
+  margin: 20px auto;
+  width: 300px;
+  height: 500px;
+  border: 5px solid #246363;
+  border-radius: 5px;
+  padding: 15px;
+  /* text-align: center; */
+}
+
+#addNew {
+  background-color: #436d6d;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+  margin: 5px 0;
+}
+
+.fa-plus {
+  background-color: #3e4f4f;
+  padding: 3px;
+  border-radius: 3px;
+}
+#tasks {
+  display: grid;
+  gap: 15px;
+}
+#tasks div {
+  background-color: #52b1ac70;
+  border: 3px solid #849595;
+  padding: 5px;
+  border-radius: 5px;
+
+  display: grid;
+  gap: 5px;
+  /* 
+  display: flex;
+  flex-direction: column;
+  gap: 5px; */
+}
+
+.options {
+justify-self: center;
+display: flex;
+gap: 15px;
+}
+
+
+.options i{
+    cursor: pointer;
+    font-size: 1.2rem
+}
+
+.delete{
+    color: red;
+    padding: 3px;
+}
+
+.edit{
+    color: green;
+    padding: 3px;
+}
