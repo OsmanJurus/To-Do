@@ -33,17 +33,21 @@
                     </div>
                     <div class="modal-body">
                         <label for="" class="">Task Title</label>
-                        <input class="form-control mb-3" type="text" name="" id="textInput">
+                        <input class="form-control " type="text" name="" id="textInput">
+                        <div id="msg" class="mb-3"></div>
 
                         <label for="">Due Date</label>
                         <input class="form-control mb-3" type="date" name="" id="dateInput">
 
+
                         <label for="">Description</label>
                         <textarea class="form-control" name="" cols="30" rows="5" id="textarea"></textarea>
+
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Add</button>
+                        <button type="submit" id="add" class="btn btn-primary">Add</button>
                     </div>
                 </div>
             </div>
@@ -55,8 +59,9 @@
                 <span class="small text-secondary">2024-05-10</span>
                 <p>I Wanna go to the gym!</p>
                 <span class="options mb-2">
-                    <i class="fa-solid edit fa-pen-to-square"></i>
-                    <i class="fa-solid delete fa-trash"></i>
+                    <i onClick="editTask(this)" data-bs-toggle="modal" data-bs-target="#form"
+                        class="fa-solid edit fa-pen-to-square"></i>
+                    <i onClick="deleteTask(this)" class="fa-solid delete fa-trash"></i>
                 </span>
             </div>
 
@@ -66,8 +71,9 @@
                 <p>I Wanna go to the Game!</p>
 
                 <span class="options mb-2">
-                    <i class="fa-solid edit fa-pen-to-square"></i>
-                    <i class="fa-solid delete fa-trash"></i>
+                    <i onClick="editTask(this)" data-bs-toggle="modal" data-bs-target="#form"
+                        class="fa-solid edit fa-pen-to-square"></i>
+                    <i onClick="deleteTask(this)" class="fa-solid delete fa-trash"></i>
                 </span>
             </div>
 
