@@ -38,14 +38,22 @@ let errorMsg = (error) => {
   return (msg.textContent = error);
 };
 
-let data = {};
+// let data = {};
 
+let data = []; // we gonna use local storage!
 // acceptData function!
 let acceptData = () => {
-  data["text"] = textInput.value;
-  data["date"] = dateInput.value;
-  data["description"] = textarea.value;
-  //   console.log(data);
+  //   data["text"] = textInput.value;
+  //   data["date"] = dateInput.value;
+  //   data["description"] = textarea.value;
+
+  data.push({
+    text: textInput.value,
+    date: dateInput.value,
+    description: textarea.value,
+  });
+  console.log(data);
+  localStorage.setItem("data", JSON.stringify(data));
 
   createTasks();
 
@@ -60,23 +68,31 @@ let acceptData = () => {
 
 // create task function!
 let createTasks = () => {
-  tasks.innerHTML += `
-    <div>
-        <span class="fw-bold fs-5">${data.text}</span>
-        <span class="small text-secondary">${data.date}</span>
-        <p>${data.description}</p>
-        <span class="options mb-2">
-            <i onClick = "editTask(this)" data-bs-toggle="modal" data-bs-target="#form" class="fa-solid edit fa-pen-to-square"></i>
-            <i onClick = "deleteTask(this)" class="fa-solid delete fa-trash"></i>
-        </span>
-    </div>
-    `;
+  tasks.innerHTML = "";
+
+  data.map((x, y) => {
+    return (tasks.innerHTML += `
+      <div id=${y}>
+          <span class="fw-bold fs-5">${x.text}</span>
+          <span class="small text-secondary">${x.date}</span>
+          <p>${x.description}</p>
+          <span class="options mb-2">
+              <i onClick = "editTask(this);" data-bs-toggle="modal" data-bs-target="#form" class="fa-solid edit fa-pen-to-square"></i>
+              <i onClick = "deleteTask(this);createTasks()" class="fa-solid delete fa-trash"></i>
+          </span>
+      </div>
+      `);
+  });
+
   resetForm();
 };
 
 // delete functions!
 let deleteTask = (e) => {
   e.parentElement.parentElement.remove();
+  data.splice(e.parentElement.parentElement.id, 1);
+  localStorage.setItem("data", JSON.stringify(data));
+  console.log(data);
 };
 
 // edit function
@@ -88,7 +104,9 @@ let editTask = (e) => {
   textarea.value = selectedTask.children[2].innerHTML;
 
   //   to delete the previous task!
-  selectedTask.remove();
+  //   selectedTask.remove();
+
+  deleteTask(e);
 };
 // resetForm function!
 let resetForm = () => {
@@ -96,3 +114,9 @@ let resetForm = () => {
   dateInput.value = "";
   textarea.value = "";
 };
+
+(() => {
+  data = JSON.parse(localStorage.getItem("data")) || [];
+  createTasks();
+  console.log(data);
+})();

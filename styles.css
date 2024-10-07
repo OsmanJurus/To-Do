@@ -25,6 +25,12 @@ h4 {
   color: #246363;
   text-shadow: 2px 3px rgba(0, 0, 0, 0.401);
 }
+
+h5 {
+  font-size: 1.5rem;
+  color: #246363;
+}
+
 .app {
   background-color: #fff;
   /* margin: 20px auto; */
@@ -53,8 +59,8 @@ h4 {
   margin: 5px 0;
 }
 
-#addNew span{
-    font-size: 1.5rem;
+#addNew span {
+  font-size: 1.5rem;
 }
 .fa-plus {
   background-color: #3e4f4f;
